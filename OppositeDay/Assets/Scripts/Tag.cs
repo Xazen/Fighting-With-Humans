@@ -8,4 +8,5 @@ public class Tag : MonoBehaviour {
 	public const string ENEMY = "Enemy";
 	public const string FLOOR = "Floor";
 	public const string HEALTHBAR = "Healthbar";
+	public const string SCORE = "Score";
 }

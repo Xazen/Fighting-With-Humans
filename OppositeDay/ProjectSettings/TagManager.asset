@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Weapon
   - Floor
+  - Healthbar
   layers:
   - Default
   - TransparentFX

@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569246f30bd7548e6a12f3ad5e77593c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 20
 --- !u!114 &11468894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f359aa750fb84d9195a49edb98e21cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setback: 5
 --- !u!114 &11473102
 MonoBehaviour:
   m_ObjectHideFlags: 1
