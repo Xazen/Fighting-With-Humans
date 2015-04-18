@@ -6,37 +6,24 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField]
 	private float jumpSpeed = 8.0f;
 	[SerializeField]
-	private float gravity = 20.0f;
+	private float movementSpeed = 8.0f;
 	[SerializeField]
 	private int maxJump = 2;
 
 	private PlayerBase _playerBase;
-	
-	private Vector3 _moveDirection;
+
 	private int _currentJumpCount;
 
 	public void Start()
 	{
 		_playerBase = GetComponent<PlayerBase> ();
 		_playerBase.PlayerInput.jump += Jump;
+		_playerBase.PlayerInput.moveLeft += MoveLeft;
+		_playerBase.PlayerInput.moveRight += MoveRight;
+		_playerBase.PlayerInput.moveUp += MoveUp;
+		_playerBase.PlayerInput.moveDown += MoveDown;
 
-
-		_moveDirection = Vector3.zero;
 		_currentJumpCount = 0;
-	}
-
-	public void Update()
-	{
-		// Apply gravity
-		_moveDirection.y -= gravity * Time.deltaTime;
-
-		_playerBase.CharacterController.Move (_moveDirection * Time.deltaTime);
-
-		// If the player is on the ground reset jump counter
-		if (_playerBase.CharacterController.isGrounded && _currentJumpCount > 0) 
-		{
-			_currentJumpCount = 0;
-		}
 	}
 
 	/// <summary>
@@ -46,8 +33,47 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if (_currentJumpCount < maxJump) 
 		{
-			_moveDirection.y = jumpSpeed;
+			Debug.Log ("Jump");
+			GetComponent<Rigidbody> ().AddForce (transform.forward * jumpSpeed, ForceMode.Impulse);
 			_currentJumpCount++;
+		}
+	}
+
+	public void MoveLeft()
+	{
+		if (_currentJumpCount == 0) 
+		{
+			GetComponent<Rigidbody> ().AddForce (-transform.up * movementSpeed, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * 3, ForceMode.Impulse);
+			_currentJumpCount++;
+		}
+	}
+
+	public void MoveRight()
+	{
+		if (_currentJumpCount == 0) 
+		{
+			GetComponent<Rigidbody> ().AddForce (transform.up * movementSpeed, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * 3, ForceMode.Impulse);
+			_currentJumpCount++;
+		}
+	}
+
+	public void MoveUp()
+	{
+	}
+
+	public void MoveDown()
+	{
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		Debug.Log (collision.gameObject.tag);
+		if (collision.gameObject.tag == Tag.FLOOR && _currentJumpCount > 0)
+		{
+			Debug.Log ("reset jump");
+			_currentJumpCount = 0;
 		}
 	}
 }

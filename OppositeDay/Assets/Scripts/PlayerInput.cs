@@ -10,6 +10,10 @@ public class PlayerInput : MonoBehaviour
 	public InputDelegate jump;
 	public InputDelegate attackLeft;
 	public InputDelegate attackRight;
+	public InputDelegate moveLeft;
+	public InputDelegate moveRight;
+	public InputDelegate moveUp;
+	public InputDelegate moveDown;
 
 	void Update()
 	{
@@ -21,7 +25,7 @@ public class PlayerInput : MonoBehaviour
 			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.A))
+		if (Input.GetKeyDown (KeyCode.Mouse0))
 		{
 			if (attackLeft != null)
 			{
@@ -29,11 +33,43 @@ public class PlayerInput : MonoBehaviour
 			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.D)) 
+		if (Input.GetKeyDown (KeyCode.Mouse1)) 
 		{
 			if (attackRight != null)
 			{
 				attackRight();
+			}
+		}
+
+		if (Input.GetKeyDown (KeyCode.W))
+		{
+			if (moveUp != null)
+			{
+				moveUp();
+			}
+		}
+		
+		if (Input.GetKeyDown (KeyCode.A)) 
+		{
+			if (moveLeft != null)
+			{
+				moveLeft();
+			}
+		}
+		
+		if (Input.GetKeyDown (KeyCode.S))
+		{
+			if (moveDown != null)
+			{
+				moveDown();
+			}
+		}
+		
+		if (Input.GetKeyDown (KeyCode.D)) 
+		{
+			if (moveRight != null)
+			{
+				moveRight();
 			}
 		}
 	}

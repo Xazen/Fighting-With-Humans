@@ -380,7 +380,7 @@ GameObject:
   - 23: {fileID: 340165966}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -684,10 +684,10 @@ SpringJoint:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1260443321}
   m_ConnectedBody: {fileID: 1631720206}
-  m_Anchor: {x: -5.82999992, y: 0, z: 24.7000008}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -2.26061161e-06, y: -.731042325, z: 12.8376904}
-  m_Spring: 500
+  m_Anchor: {x: -6.26000023, y: 0, z: 25.2199993}
+  m_AutoConfigureConnectedAnchor: 0
+  m_ConnectedAnchor: {x: 0, y: 0, z: 9.80000019}
+  m_Spring: 250
   m_Damper: .200000003
   m_MinDistance: 0
   m_MaxDistance: 0
@@ -719,11 +719,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5857b9ca68a7a44fb95da6ff56227603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.31999993
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5857b9ca68a7a44fb95da6ff56227603, type: 3}
       propertyPath: m_LocalPosition.y
-      value: .970000029
+      value: 3.91000009
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5857b9ca68a7a44fb95da6ff56227603, type: 3}
       propertyPath: m_LocalPosition.z
@@ -731,23 +731,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5857b9ca68a7a44fb95da6ff56227603, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -.513926268
+      value: -.00777447922
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5857b9ca68a7a44fb95da6ff56227603, type: 3}
       propertyPath: m_LocalRotation.y
-      value: .48567453
+      value: .707063973
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5857b9ca68a7a44fb95da6ff56227603, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -.48567459
+      value: -.707064152
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5857b9ca68a7a44fb95da6ff56227603, type: 3}
       propertyPath: m_LocalRotation.w
-      value: .513926148
+      value: .00777448062
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5857b9ca68a7a44fb95da6ff56227603, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5857b9ca68a7a44fb95da6ff56227603, type: 3}
       propertyPath: m_Name
@@ -776,8 +776,8 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 481165988cf4445bea83b771f1d0dd99, type: 3}
   m_PrefabInternal: {fileID: 2119718762}
---- !u!143 &1631720198
-CharacterController:
+--- !u!136 &1631720198
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -785,14 +785,10 @@ CharacterController:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 12
-  m_Radius: 1.25
-  m_SlopeLimit: 45
-  m_StepOffset: .300000012
-  m_SkinWidth: .0799999982
-  m_MinMoveDistance: .00100000005
-  m_Center: {x: 0, y: 0, z: 6.25}
+  m_Radius: 1.90999997
+  m_Height: 13.6499996
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 6.0999999}
 --- !u!114 &1631720199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -815,8 +811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a615361f299c54ca0bf3dc1436877c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 8
-  gravity: 20
+  jumpSpeed: 10
+  movementSpeed: 8
   maxJump: 2
 --- !u!114 &1631720201
 MonoBehaviour:
@@ -863,17 +859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b5d4f5a8c5e4f37a457e2f9f358e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!138 &1631720205
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1631720194}
-  m_ConnectedBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
 --- !u!54 &1631720206
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -887,8 +872,25 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!95 &1631720207
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1631720194}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: adb7e07cd8a8248ea9f61f4e6bbb609d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1869285174
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +960,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 481165988cf4445bea83b771f1d0dd99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.09000003
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 481165988cf4445bea83b771f1d0dd99, type: 3}
       propertyPath: m_LocalPosition.y
@@ -991,6 +993,22 @@ Prefab:
     - target: {fileID: 100000, guid: 481165988cf4445bea83b771f1d0dd99, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 481165988cf4445bea83b771f1d0dd99, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: .500000238
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 481165988cf4445bea83b771f1d0dd99, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: .499999821
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 481165988cf4445bea83b771f1d0dd99, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: .499999911
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 481165988cf4445bea83b771f1d0dd99, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -.500000119
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 481165988cf4445bea83b771f1d0dd99, type: 3}
