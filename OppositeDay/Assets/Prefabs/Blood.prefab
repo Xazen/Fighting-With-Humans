@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 476044}
   - 198: {fileID: 19886352}
   - 199: {fileID: 19925516}
+  - 114: {fileID: 11496674}
   m_Layer: 0
   m_Name: Blood
   m_TagString: Untagged
@@ -29,6 +30,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11496674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a07970aff9f46348097ec391fcfa53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &19886352
 ParticleSystem:
   m_ObjectHideFlags: 1
