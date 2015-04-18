@@ -1,29 +1,15 @@
 fileFormatVersion: 2
-guid: 5f7cf514feaa84afca553e14f7f8ee03
-timeCreated: 1429375245
+guid: 5857b9ca68a7a44fb95da6ff56227603
+timeCreated: 1429377135
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cube
-    100004: Cube_001
-    100006: Plane
     400000: //RootNode
-    400002: Cube
-    400004: Cube_001
-    400006: Plane
-    2300000: Cube
-    2300002: Cube_001
-    2300004: Plane
-    3300000: Cube
-    3300002: Cube_001
-    3300004: Plane
-    4300000: Plane
-    4300002: Cube_001
-    4300004: Cube
-    7400000: Default Take
-    9500000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube.001
   materials:
     importMaterials: 1
     materialName: 0
@@ -77,7 +63,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
