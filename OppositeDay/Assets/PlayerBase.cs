@@ -54,4 +54,17 @@ public class PlayerBase : MonoBehaviour {
 			return _playerHealth;
 		}
 	}
+
+	private CharacterController _characterController;
+	public CharacterController CharacterController
+	{
+		get
+		{
+			if (_characterController == null)
+			{
+				_characterController = GetComponent<CharacterController>();
+			}
+			return _characterController;
+		}
+	}
 }
