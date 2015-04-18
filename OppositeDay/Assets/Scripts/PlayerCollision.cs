@@ -3,13 +3,18 @@ using System.Collections;
 
 public class PlayerCollision : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	private PlayerBase _playerBase;
+
+	void Start()
+	{
+		_playerBase = GetComponent<PlayerBase> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnCollisionEnter (Collision collision)
+	{
+		if (collision.gameObject.tag == Tag.ENEMY)
+		{
+			_playerBase.PlayerHealth.decreaseHealth(10);
+		}
 	}
 }

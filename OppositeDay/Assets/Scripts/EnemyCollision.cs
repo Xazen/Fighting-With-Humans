@@ -6,6 +6,9 @@ public class EnemyCollision : MonoBehaviour
 	private ActorBase _actorBase;
 	private PlayerBase _playerBase;
 
+	[SerializeField]
+	private float setback = 6;
+
 	void Start()
 	{
 		_actorBase = GetComponent<ActorBase> ();
@@ -23,8 +26,8 @@ public class EnemyCollision : MonoBehaviour
 				GameObject.Destroy(this.gameObject);
 			} else {
 				int directionMultiplicator = (_playerBase.transform.position.x > transform.position.x) ? 1 : -1;
-               	GetComponent<Rigidbody> ().AddForce (-directionMultiplicator * transform.up * 4, ForceMode.Impulse);
-               	GetComponent<Rigidbody> ().AddForce (transform.forward * 4, ForceMode.Impulse);
+               	GetComponent<Rigidbody> ().AddForce (-directionMultiplicator * transform.up * setback, ForceMode.Impulse);
+				GetComponent<Rigidbody> ().AddForce (transform.forward * setback, ForceMode.Impulse);
 			}
 		}
 	}

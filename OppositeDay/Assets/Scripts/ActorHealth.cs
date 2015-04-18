@@ -8,12 +8,12 @@ public class ActorHealth : MonoBehaviour {
 	public float Health {get; set;}
 
 	// Use this for initialization
-	void Start () 
+	public void Start () 
 	{
 		Health = maxHealth;
 	}
 	
-	public void decreaseHealth(float value)
+	public virtual void decreaseHealth(float value)
 	{
 		Health -= value;
 	}

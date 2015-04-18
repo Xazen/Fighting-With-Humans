@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerHealth : ActorHealth {
 
-	GameObject healthUI;
+	private Image healthBar;
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+		base.Start ();
+		healthBar = GameObject.FindGameObjectWithTag (Tag.HEALTHBAR).GetComponent<Image> ();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public override void decreaseHealth(float value)
+	{
+		base.decreaseHealth(value);
+		Debug.Log (Health);
+		healthBar.fillAmount = Health/maxHealth;
 	}
 }
