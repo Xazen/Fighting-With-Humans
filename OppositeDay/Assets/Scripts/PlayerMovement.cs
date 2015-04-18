@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 	/// </summary>
 	public void Jump()
 	{
-		if (_currentJumpCount < maxJump) 
+		if (_playerBase.PlayerHealth.Health >= 0 && _currentJumpCount < maxJump) 
 		{
 			GetComponent<Rigidbody> ().AddForce (transform.forward * jumpSpeed, ForceMode.Impulse);
 			_currentJumpCount++;
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void MoveLeft()
 	{
-		if (_currentJumpCount == 0) 
+		if (_playerBase.PlayerHealth.Health >= 0 && _currentJumpCount == 0) 
 		{
 			GetComponent<Rigidbody> ().AddForce (-transform.up * movementSpeed, ForceMode.Impulse);
 			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void MoveRight()
 	{
-		if (_currentJumpCount == 0) 
+		if (_playerBase.PlayerHealth.Health >= 0 && _currentJumpCount == 0) 
 		{
 			GetComponent<Rigidbody> ().AddForce (transform.up * movementSpeed, ForceMode.Impulse);
 			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);

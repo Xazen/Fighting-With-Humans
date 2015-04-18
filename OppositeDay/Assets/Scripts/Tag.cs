@@ -9,4 +9,6 @@ public class Tag : MonoBehaviour {
 	public const string FLOOR = "Floor";
 	public const string HEALTHBAR = "Healthbar";
 	public const string SCORE = "Score";
+	public const string PAUSE = "Pause";
+	public const string GAMEOVER = "GameOver";
 }

@@ -16,7 +16,6 @@ public class PlayerHealth : ActorHealth {
 	public override void decreaseHealth(float value)
 	{
 		base.decreaseHealth(value);
-		Debug.Log (Health);
 		healthBar.fillAmount = Health/maxHealth;
 	}
 }
