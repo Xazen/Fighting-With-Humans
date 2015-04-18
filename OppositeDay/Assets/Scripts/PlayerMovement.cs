@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if (_currentJumpCount < maxJump) 
 		{
-			Debug.Log ("Jump");
 			GetComponent<Rigidbody> ().AddForce (transform.forward * jumpSpeed, ForceMode.Impulse);
 			_currentJumpCount++;
 		}
@@ -44,7 +43,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (_currentJumpCount == 0) 
 		{
 			GetComponent<Rigidbody> ().AddForce (-transform.up * movementSpeed, ForceMode.Impulse);
-			GetComponent<Rigidbody> ().AddForce (transform.forward * 3, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
 			_currentJumpCount++;
 		}
 	}
@@ -54,7 +53,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (_currentJumpCount == 0) 
 		{
 			GetComponent<Rigidbody> ().AddForce (transform.up * movementSpeed, ForceMode.Impulse);
-			GetComponent<Rigidbody> ().AddForce (transform.forward * 3, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
 			_currentJumpCount++;
 		}
 	}
@@ -72,7 +71,6 @@ public class PlayerMovement : MonoBehaviour {
 		Debug.Log (collision.gameObject.tag);
 		if (collision.gameObject.tag == Tag.FLOOR && _currentJumpCount > 0)
 		{
-			Debug.Log ("reset jump");
 			_currentJumpCount = 0;
 		}
 	}

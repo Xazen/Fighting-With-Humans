@@ -1,15 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerVisual : MonoBehaviour {
+public class PlayerVisual : MonoBehaviour 
+{
+	private PlayerBase _playerBase;
 
-	// Use this for initialization
-	void Start () {
-	
+	void Start()
+	{
+		_playerBase = GetComponent<PlayerBase> ();
+		_playerBase.PlayerInput.attackLeft += AttackLeft;
+		_playerBase.PlayerInput.attackRight += AttackRight;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	private void AttackLeft()
+	{
+		Debug.Log ("Attack left");
+		_playerBase.Animator.SetTrigger ("AttackLeft");
+	}
+
+	private void AttackRight()
+	{
+		Debug.Log ("Attack right");
+		_playerBase.Animator.SetTrigger ("AttackRight");
 	}
 }
