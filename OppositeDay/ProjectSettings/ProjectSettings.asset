@@ -19,8 +19,8 @@ PlayerSettings:
   m_ShowUnitySplashScreen: 1
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
-  defaultScreenWidthWeb: 960
-  defaultScreenHeightWeb: 600
+  defaultScreenWidthWeb: 800
+  defaultScreenHeightWeb: 450
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   m_ActiveColorSpace: 0
@@ -70,11 +70,11 @@ PlayerSettings:
   psp2PowerMode: 0
   psp2AcquireBGM: 1
   m_SupportedAspectRatios:
-    4:3: 1
-    5:4: 1
+    4:3: 0
+    5:4: 0
     16:10: 1
     16:9: 1
-    Others: 1
+    Others: 0
   bundleIdentifier: com.Company.ProductName
   bundleVersion: 1.0
   preloadedAssets: []
@@ -133,14 +133,31 @@ PlayerSettings:
     height: 180
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
-  resolutionDialogBanner: {fileID: 0}
+  resolutionDialogBanner: {fileID: 2800000, guid: e186cc80f40ee4fe0be5400faf2cb6eb,
+    type: 3}
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
     - m_Icon: {fileID: 0}
       m_Size: 128
+  - m_BuildTarget: Standalone
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: cebb547668f0b49aaaa9faf10052068f, type: 3}
+      m_Size: 1024
+    - m_Icon: {fileID: 2800000, guid: fea96db8cd0d646359ddda89fd92aff7, type: 3}
+      m_Size: 512
+    - m_Icon: {fileID: 2800000, guid: ef5918535f6b54b6d9ad08cb710b7150, type: 3}
+      m_Size: 256
+    - m_Icon: {fileID: 2800000, guid: 6e2b25e39760e4b4d9a89583a499bc03, type: 3}
+      m_Size: 128
+    - m_Icon: {fileID: 2800000, guid: 6276dc14a8e7c4b35b4be59e9824a692, type: 3}
+      m_Size: 48
+    - m_Icon: {fileID: 2800000, guid: 969539b2df1a84050b5e244e512b102e, type: 3}
+      m_Size: 32
+    - m_Icon: {fileID: 2800000, guid: 20d1a76e219014491ad9fcdeb01bbaee, type: 3}
+      m_Size: 16
   m_BuildTargetBatching: []
-  webPlayerTemplate: APPLICATION:Default
+  webPlayerTemplate: APPLICATION:Black Background
   m_TemplateCustomTags: {}
   actionOnDotNetUnhandledException: 1
   enableInternalProfiler: 0
