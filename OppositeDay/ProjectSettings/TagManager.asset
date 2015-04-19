@@ -11,6 +11,7 @@ TagManager:
   - Score
   - GameOver
   - Pause
+  - Tutorial
   layers:
   - Default
   - TransparentFX

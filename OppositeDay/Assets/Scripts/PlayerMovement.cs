@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField]
 	private float movementSpeed = 8.0f;
 	[SerializeField]
+	private float movementJumpHeight = 4.5f;
+	[SerializeField]
 	private int maxJump = 2;
 	[SerializeField]
 	private AudioClip jumpSound;
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			GetComponent<AudioSource> ().PlayOneShot (moveSound);
 			GetComponent<Rigidbody> ().AddForce (-transform.up * movementSpeed, ForceMode.Impulse);
-			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * movementJumpHeight, ForceMode.Impulse);
 			_currentJumpCount++;
 			jumped = true;
 		}
@@ -62,7 +64,7 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			GetComponent<AudioSource> ().PlayOneShot (moveSound);
 			GetComponent<Rigidbody> ().AddForce (transform.up * movementSpeed, ForceMode.Impulse);
-			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * movementJumpHeight, ForceMode.Impulse);
 			_currentJumpCount++;
 			jumped = true;
 		}
@@ -74,7 +76,7 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			GetComponent<AudioSource> ().PlayOneShot (moveSound);
 			GetComponent<Rigidbody> ().AddForce (transform.right * movementSpeed, ForceMode.Impulse);
-			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * movementJumpHeight, ForceMode.Impulse);
 			_currentJumpCount++;
 			jumped = true;
 		}
@@ -86,7 +88,7 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			GetComponent<AudioSource> ().PlayOneShot (moveSound);
 			GetComponent<Rigidbody> ().AddForce (-transform.right * movementSpeed, ForceMode.Impulse);
-			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * movementJumpHeight, ForceMode.Impulse);
 			_currentJumpCount++;
 			jumped = true;
 		}

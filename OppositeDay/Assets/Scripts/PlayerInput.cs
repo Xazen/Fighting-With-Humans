@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerInput : MonoBehaviour 
 {
 	public delegate void InputDelegate();
-
+	
 	private PlayerBase _playerBase;
 
 	public InputDelegate jump;
