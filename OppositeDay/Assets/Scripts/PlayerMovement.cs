@@ -17,11 +17,12 @@ public class PlayerMovement : MonoBehaviour {
 	private PlayerBase _playerBase;
 
 	private int _currentJumpCount;
+	private bool jumped = false;
 
 	public void Start()
 	{
 		_playerBase = GetComponent<PlayerBase> ();
-		_playerBase.PlayerInput.jump += Jump;
+//		_playerBase.PlayerInput.jump += Jump;
 		_playerBase.PlayerInput.moveLeft += MoveLeft;
 		_playerBase.PlayerInput.moveRight += MoveRight;
 		_playerBase.PlayerInput.moveUp += MoveUp;
@@ -45,40 +46,57 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void MoveLeft()
 	{
-		if (_playerBase.PlayerHealth.Health >= 0 && _currentJumpCount == 0) 
+		if (_playerBase.PlayerHealth.Health >= 0 && !jumped) 
 		{
 			GetComponent<AudioSource> ().PlayOneShot (moveSound);
 			GetComponent<Rigidbody> ().AddForce (-transform.up * movementSpeed, ForceMode.Impulse);
 			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
 			_currentJumpCount++;
+			jumped = true;
 		}
 	}
 
 	public void MoveRight()
 	{
-		if (_playerBase.PlayerHealth.Health >= 0 && _currentJumpCount == 0) 
+		if (_playerBase.PlayerHealth.Health >= 0 && !jumped) 
 		{
 			GetComponent<AudioSource> ().PlayOneShot (moveSound);
 			GetComponent<Rigidbody> ().AddForce (transform.up * movementSpeed, ForceMode.Impulse);
 			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
 			_currentJumpCount++;
+			jumped = true;
 		}
 	}
 
 	public void MoveUp()
 	{
+		if (_playerBase.PlayerHealth.Health >= 0 && !jumped) 
+		{
+			GetComponent<AudioSource> ().PlayOneShot (moveSound);
+			GetComponent<Rigidbody> ().AddForce (transform.right * movementSpeed, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
+			_currentJumpCount++;
+			jumped = true;
+		}
 	}
 
 	public void MoveDown()
 	{
+		if (_playerBase.PlayerHealth.Health >= 0 && !jumped) 
+		{
+			GetComponent<AudioSource> ().PlayOneShot (moveSound);
+			GetComponent<Rigidbody> ().AddForce (-transform.right * movementSpeed, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
+			_currentJumpCount++;
+			jumped = true;
+		}
 	}
 
 	void OnCollisionEnter(Collision collision)
 	{
-		Debug.Log (collision.gameObject.tag);
-		if (collision.gameObject.tag == Tag.FLOOR && _currentJumpCount > 0)
+		if (collision.gameObject.tag == Tag.FLOOR)
 		{
-			_currentJumpCount = 0;
+			jumped = false;
 		}
 	}
 }

@@ -20,13 +20,15 @@ public class EnemyMovement : MonoBehaviour {
 		_playerBase = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerBase>();
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
-		int directionMultiplicator = (_playerBase.transform.position.x > transform.position.x) ? 1 : -1;
+		int directionMultiplicatorUp = (_playerBase.transform.position.x > transform.position.x) ? 1 : -1;
+		int directionMultiplicatorRight = (_playerBase.transform.position.z > transform.position.z) ? 1 : -1;
 		if (Time.fixedTime % stepFrequency == 0) 
 		{
 			GetComponent<AudioSource>().PlayOneShot(stoneJump);
-			GetComponent<Rigidbody> ().AddForce (directionMultiplicator * transform.up * movementSpeed, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (directionMultiplicatorUp * transform.up * movementSpeed, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (directionMultiplicatorRight * transform.right * movementSpeed, ForceMode.Impulse);
 			GetComponent<Rigidbody> ().AddForce (transform.forward * jumpSpeed, ForceMode.Impulse);
 		}
 	}
