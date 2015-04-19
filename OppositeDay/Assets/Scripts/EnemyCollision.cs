@@ -29,19 +29,25 @@ public class EnemyCollision : MonoBehaviour
 		{
 			_actorBase.ActorHealth.decreaseHealth(10);
 
+			int directionMultiplicator = (_playerBase.transform.position.x > transform.position.x) ? 1 : -1;
+			GetComponent<Rigidbody> ().AddForce (-directionMultiplicator * transform.up * setback, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (transform.forward * setback, ForceMode.Impulse);
+
 			if(_actorBase.ActorHealth.Health <= 0)
 			{
 				GetComponent<AudioSource>().PlayOneShot(stoneDeath);
 				int currentScore = int.Parse(_scoreText.text);
 				currentScore+=100;
 				_scoreText.text = currentScore.ToString();
-				GameObject.Destroy(this.gameObject);
+				Invoke ("Destruct", 0.4f);
 			} else {
-				int directionMultiplicator = (_playerBase.transform.position.x > transform.position.x) ? 1 : -1;
-               	GetComponent<Rigidbody> ().AddForce (-directionMultiplicator * transform.up * setback, ForceMode.Impulse);
-				GetComponent<Rigidbody> ().AddForce (transform.forward * setback, ForceMode.Impulse);
 				GetComponent<AudioSource>().PlayOneShot(stoneHurt);
 			}
 		}
+	}
+
+	void Destruct()
+	{
+		GameObject.Destroy(this.gameObject);
 	}
 }

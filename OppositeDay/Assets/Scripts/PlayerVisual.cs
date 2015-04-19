@@ -25,6 +25,7 @@ public class PlayerVisual : MonoBehaviour
 	private void AttackRight()
 	{
 		Debug.Log ("Attack right");
+		GetComponent<AudioSource>().PlayOneShot(attackSound);
 		_playerBase.Animator.SetTrigger ("AttackRight");
 	}
 }
