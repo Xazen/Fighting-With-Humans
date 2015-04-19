@@ -11,4 +11,5 @@ public class Tag : MonoBehaviour {
 	public const string SCORE = "Score";
 	public const string PAUSE = "Pause";
 	public const string GAMEOVER = "GameOver";
+	public const string MAINCAMERA = "MainCamera";
 }

@@ -12,6 +12,8 @@ public class SpawnPoint : MonoBehaviour {
 	[SerializeField]
 	private float spawnMultiplierFrequency = 20f;
 	[SerializeField]
+	private int firstSpawn = 10;
+	[SerializeField]
 	private GameObject spawnObject;
 
 	private int spawnFrequency;
@@ -24,12 +26,12 @@ public class SpawnPoint : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		if (Time.fixedTime % spawnFrequency == 0) 
+		if ((Time.fixedTime-firstSpawn) % spawnFrequency == 0 && Time.fixedTime >= firstSpawn) 
 		{
 			Instantiate(spawnObject, transform.localPosition, spawnObject.transform.rotation);
 		}
 
-		if ((Time.fixedTime % spawnMultiplierFrequency) == 0) 
+		if (((Time.fixedTime - firstSpawn) % spawnMultiplierFrequency) == 0) 
 		{
 			if ((spawnFrequency * spawnMultiplier) > minSpawnFrequency) 
 			{

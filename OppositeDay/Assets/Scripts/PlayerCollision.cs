@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.ImageEffects;
 
 public class PlayerCollision : MonoBehaviour {
 
@@ -28,6 +29,7 @@ public class PlayerCollision : MonoBehaviour {
 				GetComponent<AudioSource>().PlayOneShot(deathClip);
 				GameObject.Destroy(gameObject);
 				gameOverMenu.SetActive(true);
+				GameObject.FindGameObjectWithTag(Tag.MAINCAMERA).GetComponent<BlurOptimized>().enabled = true;
 			} else {
 				GetComponent<AudioSource>().PlayOneShot(hurtClip);
 			}
