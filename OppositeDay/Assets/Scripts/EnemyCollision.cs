@@ -4,6 +4,11 @@ using UnityEngine.UI;
 
 public class EnemyCollision : MonoBehaviour 
 {
+	[SerializeField]
+	private AudioClip stoneHurt;
+	[SerializeField]
+	private AudioClip stoneDeath;
+
 	private ActorBase _actorBase;
 	private PlayerBase _playerBase;
 	private Text _scoreText;
@@ -26,15 +31,16 @@ public class EnemyCollision : MonoBehaviour
 
 			if(_actorBase.ActorHealth.Health <= 0)
 			{
-				GameObject.Destroy(this.gameObject);
+				GetComponent<AudioSource>().PlayOneShot(stoneDeath);
 				int currentScore = int.Parse(_scoreText.text);
 				currentScore+=100;
 				_scoreText.text = currentScore.ToString();
-
+				GameObject.Destroy(this.gameObject);
 			} else {
 				int directionMultiplicator = (_playerBase.transform.position.x > transform.position.x) ? 1 : -1;
                	GetComponent<Rigidbody> ().AddForce (-directionMultiplicator * transform.up * setback, ForceMode.Impulse);
 				GetComponent<Rigidbody> ().AddForce (transform.forward * setback, ForceMode.Impulse);
+				GetComponent<AudioSource>().PlayOneShot(stoneHurt);
 			}
 		}
 	}

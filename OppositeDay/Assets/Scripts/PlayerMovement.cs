@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour {
 	private float movementSpeed = 8.0f;
 	[SerializeField]
 	private int maxJump = 2;
+	[SerializeField]
+	private AudioClip jumpSound;
+	[SerializeField]
+	private AudioClip moveSound;
 
 	private PlayerBase _playerBase;
 
@@ -33,6 +37,7 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if (_playerBase.PlayerHealth.Health >= 0 && _currentJumpCount < maxJump) 
 		{
+			GetComponent<AudioSource> ().PlayOneShot (jumpSound);
 			GetComponent<Rigidbody> ().AddForce (transform.forward * jumpSpeed, ForceMode.Impulse);
 			_currentJumpCount++;
 		}
@@ -42,6 +47,7 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if (_playerBase.PlayerHealth.Health >= 0 && _currentJumpCount == 0) 
 		{
+			GetComponent<AudioSource> ().PlayOneShot (moveSound);
 			GetComponent<Rigidbody> ().AddForce (-transform.up * movementSpeed, ForceMode.Impulse);
 			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
 			_currentJumpCount++;
@@ -52,6 +58,7 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		if (_playerBase.PlayerHealth.Health >= 0 && _currentJumpCount == 0) 
 		{
+			GetComponent<AudioSource> ().PlayOneShot (moveSound);
 			GetComponent<Rigidbody> ().AddForce (transform.up * movementSpeed, ForceMode.Impulse);
 			GetComponent<Rigidbody> ().AddForce (transform.forward * 4.5f, ForceMode.Impulse);
 			_currentJumpCount++;

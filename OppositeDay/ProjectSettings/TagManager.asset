@@ -9,6 +9,8 @@ TagManager:
   - Floor
   - Healthbar
   - Score
+  - GameOver
+  - Pause
   layers:
   - Default
   - TransparentFX

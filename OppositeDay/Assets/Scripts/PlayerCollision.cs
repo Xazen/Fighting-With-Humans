@@ -5,6 +5,11 @@ public class PlayerCollision : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject gameOverMenu;
+	[SerializeField]
+	private AudioClip deathClip;
+	[SerializeField]
+	private AudioClip hurtClip;
+
 	private PlayerBase _playerBase;
 
 	void Start()
@@ -20,8 +25,11 @@ public class PlayerCollision : MonoBehaviour {
 
 			if (_playerBase.PlayerHealth.Health <= 0)
 			{
+				GetComponent<AudioSource>().PlayOneShot(deathClip);
 				GameObject.Destroy(gameObject);
 				gameOverMenu.SetActive(true);
+			} else {
+				GetComponent<AudioSource>().PlayOneShot(hurtClip);
 			}
 		}
 	}

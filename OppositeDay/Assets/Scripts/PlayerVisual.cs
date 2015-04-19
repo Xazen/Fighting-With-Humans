@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerVisual : MonoBehaviour 
 {
+	[SerializeField]
+	private AudioClip attackSound;
+
 	private PlayerBase _playerBase;
 
 	void Start()
@@ -15,6 +18,7 @@ public class PlayerVisual : MonoBehaviour
 	private void AttackLeft()
 	{
 		Debug.Log ("Attack left");
+		GetComponent<AudioSource>().PlayOneShot(attackSound);
 		_playerBase.Animator.SetTrigger ("AttackLeft");
 	}
 
